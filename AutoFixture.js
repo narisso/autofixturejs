@@ -19,6 +19,18 @@ String.prototype.asNumber = function(){
 	};
 };
 
+String.prototype.asBoolean = function(){
+	var fieldName = this;
+	return function(incrementer) 
+	{
+		return{
+			name : fieldName,
+			value : Math.random() < 0.5
+		};
+		
+	};
+};
+
 String.prototype.asRandomBetween = function(from, to){
 	var fieldName = this;
 	return function(incrementer) 
