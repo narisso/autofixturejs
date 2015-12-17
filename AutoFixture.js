@@ -93,7 +93,7 @@ String.prototype.asFixtureArray = function(length, fixtureName){
     var fieldName = this;
     var createArray = function(incrementer){
         result = [];
-        for(var i = incrementer; i<=incrementer+length; i++){
+        for(var i = incrementer; i<incrementer+length; i++){
             result.push(exports.create(fixtureName))
         }
         return result
