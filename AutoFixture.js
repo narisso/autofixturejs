@@ -19,6 +19,18 @@ String.prototype.asNumber = function(){
 	};
 };
 
+String.prototype.asRandomBetween = function(from, to){
+	var fieldName = this;
+	return function(incrementer) 
+	{
+		return{
+			name : fieldName,
+			value : Math.random() * to + from	
+		};
+		
+	};
+};
+
 String.prototype.asDate = function(){
 	var fieldName = this;
 	return function(incrementer){
@@ -63,6 +75,23 @@ String.prototype.fromFixture = function(fixtureName){
 			value: exports.create(fixtureName)
 		}
 	}
+};
+
+String.prototype.asFixtureArray = function(length, fixtureName){
+    var fieldName = this;
+    var createArray = function(incrementer){
+        result = [];
+        for(var i = incrementer; i<=incrementer+length; i++){
+            result.push(exports.create(fixtureName))
+        }
+        return result
+    };
+    return function(incrementer){
+        return{
+            name: fieldName,
+            value: createArray(incrementer)
+        }
+    }
 };
 
 
