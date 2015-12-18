@@ -37,7 +37,7 @@ String.prototype.asRandomBetween = function(from, to){
 	{
 		return{
 			name : fieldName,
-			value : Math.random() * to + from	
+			value : Math.random() * (to - from) + from	
 		};
 		
 	};
